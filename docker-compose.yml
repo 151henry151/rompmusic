@@ -32,6 +32,12 @@ services:
       - "3002:3000"
     restart: unless-stopped
 
+  client:
+    build: ./rompmusic-client
+    ports:
+      - "3003:80"
+    restart: unless-stopped
+
   server:
     build: ./rompmusic-server
     ports:
