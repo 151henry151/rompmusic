@@ -1,0 +1,9 @@
+[submodule "rompmusic-server"]
+	path = rompmusic-server
+	url = https://github.com/151henry151/rompmusic-server.git
+[submodule "rompmusic-client"]
+	path = rompmusic-client
+	url = https://github.com/151henry151/rompmusic-client.git
+[submodule "rompmusic-website"]
+	path = rompmusic-website
+	url = https://github.com/151henry151/rompmusic-website.git

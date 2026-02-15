@@ -1,0 +1,48 @@
+# Copyright (C) 2024 RompMusic Contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# RompMusic full stack: server + PostgreSQL + Redis
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: rompmusic
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-rompmusic}
+      POSTGRES_DB: rompmusic
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rompmusic"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  server:
+    build: ./rompmusic-server
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://rompmusic:${DB_PASSWORD:-rompmusic}@db:5432/rompmusic
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET}
+      MUSIC_PATH: /music
+      ADMIN_COOKIE_SECRET: ${ADMIN_COOKIE_SECRET:-change-me}
+    volumes:
+      - ${MUSIC_PATH:-./music}:/music:ro
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+volumes:
+  pgdata:
