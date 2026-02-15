@@ -49,6 +49,7 @@ services:
       MUSIC_PATH: /music
       ADMIN_COOKIE_SECRET: ${ADMIN_COOKIE_SECRET:-change-me}
       BASE_URL: https://rompmusic.com
+      LASTFM_API_KEY: ${LASTFM_API_KEY:-}
     volumes:
       - ${MUSIC_PATH:-./music}:/music:ro
     depends_on:
