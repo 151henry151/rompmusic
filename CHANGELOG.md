@@ -11,6 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.0-beta.2] - 2026-02-16
+
+### Changed
+
+- **Client (rompmusic-client)** — Gapless playback: prestart next track at zero volume ~400 ms before end; at ~20 ms promote and unmute. Reset prestart state in all code paths. Mini player: queue chevron in centered row above progress bar (removed from full-screen player).
+
+### Fixed
+
+- **Client (rompmusic-client)** — Queue / "play next" bug: choosing "play next" on another song while an album was playing could play the wrong track; fixed by clearing preload and preloading the new next track when queue changes.
+
 ## [0.1.0-beta.1] - 2025-02-15
 
 First beta release. Considered beta until all components are confirmed working in production.
@@ -43,5 +53,6 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.1...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.2...HEAD
+[0.1.0-beta.2]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.2
 [0.1.0-beta.1]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.1
