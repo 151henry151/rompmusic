@@ -50,6 +50,11 @@ services:
       ADMIN_COOKIE_SECRET: ${ADMIN_COOKIE_SECRET:-change-me}
       BASE_URL: https://rompmusic.com
       LASTFM_API_KEY: ${LASTFM_API_KEY:-}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_FROM: ${SMTP_FROM:-}
     volumes:
       - ${MUSIC_PATH:-./music}:/music:ro
     depends_on:
