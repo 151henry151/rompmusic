@@ -11,6 +11,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.0-beta.3] - 2026-02-17
+
+### Added
+
+- **Client** — Play history screen (recently played tracks); History in app nav; clock icon in Library when signed in.
+- **Client** — Search suggestions as you type in Library (debounced; artists, albums, tracks with tap-to-open).
+- **Client** — Setting “Put albums with artwork first” (albums without art at bottom); optional in Settings.
+- **Server** — Optional automated library scan: set `AUTO_SCAN_INTERVAL_HOURS` (e.g. 24 for daily).
+- **Server** — Optional Beets automation: set `BEETS_AUTO_INTERVAL_HOURS` (e.g. 24) to run `beet fetch-art` in the music directory.
+
+### Changed
+
+- **Client** — Library lists (artists, albums, songs) are paginated (50 per page, “Load more”) to avoid crashes on large libraries.
+- **Client** — Mini player shows album name (artist • album); queue panel shows full queue with current track highlighted; artist and album are tappable (open artist/album screen).
+- **Client** — Artist and album names are tappable everywhere (Track detail, Player, Library songs, Search, Album detail) and open the corresponding screen.
+- **Client** — Gapless: prestart next track 15 s before end; seek to 0 on promote; current track uses streaming (no download-first) for faster start.
+- **Server** — Library scan runs in a background task with its own DB session; progress is streamed via SSE. Closing the admin tab no longer cancels the scan.
+- **Server** — Album search matches artist name and any track title on the album (not only album title).
+- **Server** — Album tracks are ordered by disc number then track number when requested by album (correct multi-disc order).
+- **Server** — List albums supports `artwork_first` (default true) to put albums with artwork first.
+- **Server** — Dashboard shows scan error message when a scan fails instead of reloading.
+
 ## [0.1.0-beta.2] - 2026-02-16
 
 ### Changed
@@ -53,6 +75,7 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.2...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.3...HEAD
+[0.1.0-beta.3]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.3
 [0.1.0-beta.2]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.2
 [0.1.0-beta.1]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.1

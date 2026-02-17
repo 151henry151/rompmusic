@@ -20,7 +20,7 @@ RompMusic is a complete, self-hosted music streaming system that is **libre** (f
 | Component | Description |
 |-----------|-------------|
 | **rompmusic-server** | Backend server for streaming, library management, and API |
-| **rompmusic-client** | Cross-platform client (Android, iOS, web) with gapless playback |
+| **rompmusic-client** | Cross-platform client (Android, iOS, web) with gapless playback, play history, and paginated library |
 | **rompmusic-website** | Project website and documentation at rompmusic.com |
 
 ## Quick Start

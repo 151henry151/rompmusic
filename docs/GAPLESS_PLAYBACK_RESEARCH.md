@@ -64,7 +64,7 @@ So we are **not** in the “single queue / single pipeline” model. We can only
    Remove the previous track only **after** the next has started playing (`status.playing`), so there is a short overlap instead of silence.
 
 2. **Trigger transition earlier / prestart at zero volume (implemented)**  
-   We prestart the next track at zero volume ~400 ms before end; at ~20 ms before end we promote the preload to current, set volume, and remove the old player (unmute the already-playing next track). This minimizes perceived gap; a small gap may still remain (future work).
+   We prestart the next track at zero volume **15 s before** end (so it has time to load on slow or transcoding setups); at **~20 ms before** end we promote, seek the next track to 0, and unmute. Current track uses streaming (no download-first) for faster start. A small gap may still remain (future work).
 
 3. **Preload readiness**  
    Use `downloadFirst: true` and only promote when the next player is loaded (or play immediately and rely on overlap). Ensure we don’t promote a player that isn’t ready (we already try to play immediately and fallback when loaded).
