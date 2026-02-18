@@ -11,6 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.0-beta.4] - 2026-02-16
+
+### Added
+
+- **Server** — Resend welcome email from admin dashboard (per user; includes username and login link).
+- **Server** — Logo and favicon in admin UI.
+
+### Changed
+
+- **Server** — Invite flow: admin sets only username (password defaults to username); invite email and dashboard form updated; "Resend welcome email" button in Users table.
+
 ## [0.1.0-beta.3] - 2026-02-17
 
 ### Added
@@ -75,7 +86,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.3...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.4...HEAD
+[0.1.0-beta.4]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.4
 [0.1.0-beta.3]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.3
 [0.1.0-beta.2]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.2
 [0.1.0-beta.1]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.1
