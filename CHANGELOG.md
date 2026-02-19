@@ -11,6 +11,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.0-beta.5] - 2026-02-18
+
+### Added
+
+- **Client** — Album grouping by identical artwork: albums with the same cover image appear as one card; tap to open and see each version (disc/edition) as separate sections with full titles. When artwork hash is not yet available, grouping falls back to primary artist + title + year (collaboration variants and same-title multi-artist albums like "Amy" merge). Track share button and deep links (`/track/:id`).
+
+### Changed
+
+- **Client** — Albums with no artwork (or showing placeholder) are sorted to the end of the album list and to the end of each A–Z letter and decade section. Sort uses "shows real artwork" so placeholder cards stay at the bottom.
+- **Server** — Artwork hash on albums for client grouping; stored when artwork is served or during scan. Default `AUTO_SCAN_INTERVAL_HOURS` and `BEETS_AUTO_INTERVAL_HOURS` set to 24 (daily).
+- **Website** — Redundant "Open App" links removed from landing, ToS, and Privacy headers (kept single "Launch Web App" button).
+
 ## [0.1.0-beta.4] - 2026-02-16
 
 ### Added
@@ -86,7 +98,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.4...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.5...HEAD
+[0.1.0-beta.5]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.4...v0.1.0-beta.5
 [0.1.0-beta.4]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.4
 [0.1.0-beta.3]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.3
 [0.1.0-beta.2]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.2
