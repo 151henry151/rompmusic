@@ -11,6 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.0-beta.6] - 2026-02-19
+
+### Added
+
+- **Client (0.1.0-beta.6)** — Cookie-based play history when not signed in; play history icon in Library when logged out; album share with in-app “Link copied!” feedback; track share in three-dots menu; direct album URL handling via custom `getStateFromPath`. No-artwork placeholder shows “no album art” text; multiple-editions UI (per-edition sections, Play album / Add to queue / Play next); track dedupe by id and (album_id, disc, track_number); library initial page size 80; loading state until playback starts; Safari uses original format (no OGG). Play history empty message fix.
+- **Website (0.1.0-beta.3)** — Redirect `/album/:id` to `/app/album/:id` for shared album links.
+
+### Changed
+
+- **Server (0.1.0-beta.5)** — Artwork: commit album artwork clear before raising 404 so DB updates persist. Streaming: logging, top-level try/except, `FileResponse(str(full_path))`, `track.file_path` check, OSError handling. Library: fix N+1 in list_albums (one query for all track counts by album id).
+
 ## [0.1.0-beta.5] - 2026-02-18
 
 ### Added
@@ -98,7 +109,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.5...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.6...HEAD
+[0.1.0-beta.6]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.5...v0.1.0-beta.6
 [0.1.0-beta.5]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.4...v0.1.0-beta.5
 [0.1.0-beta.4]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.4
 [0.1.0-beta.3]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.3
