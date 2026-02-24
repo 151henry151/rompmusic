@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-
 - (Changes since last release will be listed here)
 
 ## [0.1.0-beta.8] - 2026-02-23
+
+### Added
+
+- **Client** — Random album sort option in Library; pull-to-refresh on Library (Artists and Albums tabs).
 
 ### Changed
 
