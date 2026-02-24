@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.0-beta.8] - 2026-02-23
+
+### Changed
+
+- **Client** — Search results (Library search bar and Search screen) use the same album grouping as the Library albums tab: groupAlbumsByArtwork so e.g. “Doo-Bop” shows as one album instead of three editions. Navigate to AlbumDetail with albumIds for merged view. Edition suffix patterns extended (CD, Vinyl, LP, etc.) so more multi-edition albums show as single release. “Play album” guarded so only one playback starts even if multiple handlers fire.
+
 ## [0.1.0-beta.7] - 2026-02-23
 
 ### Added
@@ -120,7 +126,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.7...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.8...HEAD
+[0.1.0-beta.8]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.7...v0.1.0-beta.8
 [0.1.0-beta.7]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.6...v0.1.0-beta.7
 [0.1.0-beta.6]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.5...v0.1.0-beta.6
 [0.1.0-beta.5]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.4...v0.1.0-beta.5
