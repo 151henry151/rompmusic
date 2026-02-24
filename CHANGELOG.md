@@ -11,6 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.0-beta.7] - 2026-02-23
+
+### Added
+
+- **Website** — Documentation expanded: new Overview page (why RompMusic, components), Client app setup guide (web app, first-run server URL on Android/iOS, changing server URL, hosting the web client, env vars), and Contributing page (code of conduct, bugs, features, code contributions, repo structure). Docs landing page lists all four sections with descriptions. Install guide links to Client app setup for connecting the client.
+
+### Changed
+
+- **Client** — Merged albums (e.g. Doo-Bop): when opening a grouped album, navigation passes both albumId and albumIds so the URL is stable (/album/3143) and state has the full edition list; deep link parses albumIds query param. Merged tracks by (disc_number, track_number) only so the full track list shows across editions without duplicate track ids. Server URL: first-run "Connect to your server" when no URL and no EXPO_PUBLIC_API_URL; Settings has Server URL with edit dialog (change clears session). Play album: only one track plays; pause stops the single active player.
+- **Client** — Player store tracks all active AudioPlayer instances in a set; playTrack calls stopAndRemoveAllPlayers() before starting so no orphaned players keep playing. Teardown uses pause() then remove() and removePlayer() for consistent cleanup.
+
 ## [0.1.0-beta.6] - 2026-02-19
 
 ### Added
@@ -109,7 +120,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.6...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.7...HEAD
+[0.1.0-beta.7]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.6...v0.1.0-beta.7
 [0.1.0-beta.6]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.5...v0.1.0-beta.6
 [0.1.0-beta.5]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.4...v0.1.0-beta.5
 [0.1.0-beta.4]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.4
