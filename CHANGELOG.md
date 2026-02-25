@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
-## [0.1.0-beta.9] - 2026-02-16
+## [0.1.0-beta.10] - 2026-02-16
 
 ### Changed
 
-- **Server (0.1.0-beta.6)** — Admin full re-scan (clears library then rescans; runs in background like normal scan). Streaming: range requests use StreamingResponse for iOS/Safari. Scanner clear_library for full re-scan.
+- **Client (0.1.0-beta.9)** — Web: URL always includes base path (/app/...) so reload keeps you in the app. iOS Safari: playTrack and Play handlers adjusted so user gesture is preserved and playback is not blocked.
 
 ## [0.1.0-beta.8] - 2026-02-23
 
