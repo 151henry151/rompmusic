@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.0-beta.12] - 2026-02-26
+
+### Changed
+
+- **Server (0.1.0-beta.7)** — Scanner: album key `(album_title, year)` so one album per release regardless of per-track artist (e.g. Doo-Bop stays one album).
+- **Client (0.1.0-beta.11)** — Album grouping by title + year so multi-artist same release shows as one album in search and library.
+
 ## [0.1.0-beta.11] - 2026-02-16
 
 ### Fixed
