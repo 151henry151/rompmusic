@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
-## [0.1.0-beta.10] - 2026-02-16
+## [0.1.0-beta.11] - 2026-02-16
 
-### Changed
+### Fixed
 
-- **Client (0.1.0-beta.9)** — Web: URL always includes base path (/app/...) so reload keeps you in the app. iOS Safari: playTrack and Play handlers adjusted so user gesture is preserved and playback is not blocked.
+- **Client (0.1.0-beta.10)** — Web playback: define clearCurrentPlayerRefs and removeStalePlayers so Play album and mini player work; avoid ReferenceError and multiple tracks.
 
 ## [0.1.0-beta.8] - 2026-02-23
 
