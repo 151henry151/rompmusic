@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- (Changes since last release will be listed here)
+### Added
+
+- **Client** — Mobile store compliance: iOS background audio (`UIBackgroundModes: ["audio"]`), Android target SDK 34 (expo-build-properties), in-app account deletion (Settings → Delete account with confirmation; calls `DELETE /auth/me`). About screen version from `Constants.expoConfig?.version`. `.env.example` documents `EXPO_PUBLIC_WEBSITE_URL`. See `MOBILE_STORE_COMPLIANCE_AND_READINESS.md`.
+- **Server** — `DELETE /api/v1/auth/me`: permanently delete current user and related data (verification codes, password reset tokens, play history, playlists; invitations’ `invited_by_id` set to null). Required for App Store account-deletion policy.
 
 ## [0.1.0-beta.12] - 2026-02-26
 
