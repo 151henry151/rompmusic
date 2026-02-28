@@ -7,10 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.13] - 2026-02-28
+
 ### Added
 
-- **Client** — Mobile store compliance: iOS background audio (`UIBackgroundModes: ["audio"]`), Android target SDK 34 (expo-build-properties), in-app account deletion (Settings → Delete account with confirmation; calls `DELETE /auth/me`). About screen version from `Constants.expoConfig?.version`. `.env.example` documents `EXPO_PUBLIC_WEBSITE_URL`. See `MOBILE_STORE_COMPLIANCE_AND_READINESS.md`.
+- **Client** — Mobile store compliance: iOS background audio (`UIBackgroundModes: ["audio"]`), Android target SDK 34 (expo-build-properties), in-app account deletion (Settings → Delete account with confirmation; calls `DELETE /auth/me`). About screen version from `Constants.expoConfig?.version`. `.env.example` documents `EXPO_PUBLIC_WEBSITE_URL`.
 - **Server** — `DELETE /api/v1/auth/me`: permanently delete current user and related data (verification codes, password reset tokens, play history, playlists; invitations’ `invited_by_id` set to null). Required for App Store account-deletion policy.
+
+### Changed
+
+- **Unified app branch** — Merged the recent client `cursor/android-app-launch-crash-3dea` and `cursor/ios-app-readiness-edc4` lines into one React Native code path for Android, iOS, and web.
+- **Play history behavior** — `GET /api/v1/library/tracks/recently-played` now returns full history by default (no hard 50-item cap) and no longer fails when clients request larger limits.
+
+### Fixed
+
+- **Web/app history load failure** — History screen no longer triggers the previous `limit=100` validation error path and now loads successfully in both authenticated and anonymous-cookie flows.
+
+### Tested
+
+- **Web client** — Manually tested end-to-end (library, auth, history, settings) and verified working.
+- **Android app** — Tested and working.
+- **iOS app** — Not yet tested.
 
 ## [0.1.0-beta.12] - 2026-02-26
 
@@ -144,7 +161,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.8...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.13...HEAD
+[0.1.0-beta.13]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.12...v0.1.0-beta.13
 [0.1.0-beta.8]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.7...v0.1.0-beta.8
 [0.1.0-beta.7]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.6...v0.1.0-beta.7
 [0.1.0-beta.6]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.5...v0.1.0-beta.6
