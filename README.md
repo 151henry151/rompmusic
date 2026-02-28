@@ -28,10 +28,10 @@ RompMusic is a complete, self-hosted music streaming system that is **libre** (f
 ### Using Docker (Recommended)
 
 ```bash
-git clone --recursive https://github.com/rompmusic/rompmusic.git
+git clone --recursive https://github.com/151henry151/rompmusic.git
 cd rompmusic
 cp .env.example .env
-# Edit .env with your configuration
+# Edit .env with your configuration (DB_PASSWORD, JWT_SECRET, etc.)
 docker compose up -d
 ```
 
