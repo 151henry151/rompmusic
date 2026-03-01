@@ -9,11 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **Client (Library)** — Added pinch-to-zoom album grid density control on the album list (1–12 albums per row; default density unchanged).
+- **Client (Library)** — Added pinch-to-zoom album grid density control on the album list (1–12 albums per row; default 3-per-row mobile feel retained).
 - **Client (Album art)** — Added tap-to-open zoom modal for album covers on Album Detail and full-screen Now Playing with pinch zoom support.
 
 ### Fixed
 
+- **Client (Android detail/player swipe-down)** — Improved dismiss/back drag recognition on Album Detail, Track Detail, and full-screen Now Playing to reliably close on a clear center-screen downward swipe.
 - **Client (Album grid pinch zoom)** — Reworked pinch interaction for smooth live scaling and release-to-commit layout updates to remove clunky delayed/jumpy zoom behavior.
 - **Client (Album grid + section index layout)** — Restored the default mobile album density and reserved right-side space so the section index strip no longer overlays album artwork.
 - **Client (Android)** — Library album covers now keep loading while scrolling deeper into large album lists by reducing native eager prefetch pressure and hardening artwork image retries/downsampling.
