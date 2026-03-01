@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.0-beta.15] - 2026-03-16
+
+### Changed
+
+- Client: swipe-down to dismiss on album detail, track detail, and full-page player (pull down at top = go back/close, same gesture as library refresh)
+
 ## [0.1.0-beta.14] - 2026-03-01
 
 ### Added
@@ -61,6 +67,7 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.14...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0-beta.15...HEAD
+[0.1.0-beta.15]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.15
 [0.1.0-beta.14]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.14
 [0.1.0-beta.1]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.1
