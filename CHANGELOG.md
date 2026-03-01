@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **Client (Android detail/player swipe-dismiss hardening)** — Replaced PanResponder-based drag dismissal with direct touch-tracked downward drag detection on Album Detail, Track Detail, and full-screen Now Playing for more reliable center-screen swipe-down close behavior.
 - **Client (Android detail/player swipe-down)** — Improved dismiss/back drag recognition on Album Detail, Track Detail, and full-screen Now Playing to reliably close on a clear center-screen downward swipe.
 - **Client (Album grid pinch zoom)** — Reworked pinch interaction for smooth live scaling and release-to-commit layout updates to remove clunky delayed/jumpy zoom behavior.
 - **Client (Album grid + section index layout)** — Restored the default mobile album density and reserved right-side space so the section index strip no longer overlays album artwork.
