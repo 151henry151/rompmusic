@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - **Client (Android)** — Library album covers now keep loading while scrolling deeper into large album lists by reducing native eager prefetch pressure and hardening artwork image retries/downsampling.
+- **Client (Album detail)** — Multi-artist split albums now resolve related variants when opened from a single variant and preserve full tracklists/cover selection in detail view.
 
 ## [0.1.0-beta.13] - 2026-02-28
 
