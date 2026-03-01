@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **Client (Album grid pinch zoom)** — Reworked pinch interaction for smooth live scaling and release-to-commit layout updates to remove clunky delayed/jumpy zoom behavior.
+- **Client (Album grid + section index layout)** — Restored the default mobile album density and reserved right-side space so the section index strip no longer overlays album artwork.
 - **Client (Android)** — Library album covers now keep loading while scrolling deeper into large album lists by reducing native eager prefetch pressure and hardening artwork image retries/downsampling.
 - **Client (Album detail)** — Multi-artist split albums now resolve related variants when opened from a single variant and preserve full tracklists/cover selection in detail view.
 - **Client (Android gestures + lock screen)** — Improved swipe-down-back dismissal in album/track/full-player screens, and fixed lock-screen notification controls/metadata updates when skipping tracks.
