@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Client: Album playback advances to next track reliably at end of track (wider end threshold + fallback timer)
+- Client: Play album on Android — second track no longer plays first track’s audio (load next track fresh instead of reusing preloaded player)
+
 ### Added
 
 - (Changes since last release will be listed here)
