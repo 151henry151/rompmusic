@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.4] - 2026-02-14
+
+### Fixed
+
+- Client: "Play album" crash ("undefined is not a function") fixed; fallback to single-track path when native setQueue unavailable; setQueue now uses JSON string for bridge compatibility.
+
 ## [0.1.3] - 2026-02-14
 
 ### Added
@@ -121,7 +127,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.3...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.4...HEAD
+[0.1.4]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.4
 [0.1.3]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.3
 [0.1.1]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.1
 [0.1.0]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0
