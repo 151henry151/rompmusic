@@ -16,6 +16,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.3] - 2026-02-14
+
+### Added
+
+- Client (Android): native ExoPlayer queue so next track plays when current ends even when device is locked or app is in background
+
+### Fixed
+
+- Client: playback no longer stops after first track when device is idle or screen off (native queue advances in background)
+
+## [0.1.1] - 2026-02-14
+
+### Fixed
+
+- Client: next track starts when device is locked or screen off (background playback + time-based advance + catch-up on resume)
+
+### Added
+
+- Client: expo-audio background playback plugin, WAKE_LOCK, AppState-based queue advance on app resume
+
 ## [0.1.0] - 2026-02-14
 
 First stable release. Dropped beta designation for Google Play Store submission.
@@ -101,7 +121,9 @@ First beta release. Considered beta until all components are confirmed working i
 - Website Docker build (create `public` directory for Next.js standalone)
 - Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.3
+[0.1.1]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.1
 [0.1.0]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0
 [0.1.0-beta.17]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.17
 [0.1.0-beta.16]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.0-beta.16
