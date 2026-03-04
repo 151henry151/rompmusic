@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Client: Album playback advances to next track reliably at end of track (wider end threshold + fallback timer)
-- Client: Play album on Android — second track no longer plays first track’s audio (load next track fresh instead of reusing preloaded player)
+- Client: Widen end-of-track detection thresholds and add a fallback timer to force album queue advance when callbacks lag.
+- Client: Create a fresh next-track player on Android album playback instead of reusing preloaded player state.
 
 ### Added
 
@@ -20,27 +20,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Client: "Play album" crash ("undefined is not a function") fixed; fallback to single-track path when native setQueue unavailable; setQueue now uses JSON string for bridge compatibility.
+- Client: Guard native queue calls by checking `setQueue` availability, fall back to single-track `loadAndPlay`, and serialize queue payloads as JSON for bridge compatibility.
 
 ## [0.1.3] - 2026-02-14
 
 ### Added
 
-- Client (Android): native ExoPlayer queue so next track plays when current ends even when device is locked or app is in background
+- Client (Android): Integrate native ExoPlayer queue handling in the playback path so the next track is scheduled in background/locked playback.
 
 ### Fixed
 
-- Client: playback no longer stops after first track when device is idle or screen off (native queue advances in background)
+- Client: Route album playback advancement through the native queue path so playback continues when the device is idle or screen-off.
 
 ## [0.1.1] - 2026-02-14
 
 ### Fixed
 
-- Client: next track starts when device is locked or screen off (background playback + time-based advance + catch-up on resume)
+- Client: Add time-threshold track-end detection and AppState resume catch-up logic to trigger next-track starts after lock/background transitions.
 
 ### Added
 
-- Client: expo-audio background playback plugin, WAKE_LOCK, AppState-based queue advance on app resume
+- Client: Enable the expo-audio background playback plugin, add Android `WAKE_LOCK`, and add AppState-based resume queue-advance hooks.
 
 ## [0.1.0] - 2026-02-14
 
@@ -48,52 +48,52 @@ First stable release. Dropped beta designation for Google Play Store submission.
 
 ### Changed
 
-- Version set to 0.1.0 across all components (client, server, website)
+- Set version `0.1.0` across client, server, and website components.
 
 ## [0.1.0-beta.17] - 2026-03-01
 
 ### Fixed
 
-- Client: Album details page not loading (use RefreshControl directly instead of DismissRefreshControl wrapper; safe route.params)
-- Client: Random sort keeps 3 albums per row (use same effective grid width as section-index view so card size and column count match)
+- Client: Replace `DismissRefreshControl` wrapper usage with direct `RefreshControl` and guard `route.params` reads in Album details.
+- Client: Compute random-sort grid sizing from section-index layout width constants so random mode preserves three columns.
 
-## [0.1.0-beta.16] - 2026-02-16
+## [0.1.0-beta.16] - 2026-03-01
 
 ### Fixed
 
-- Client: Album details screen black on Android (SwipeDownDismissWrapper layout; use outer View + absolute Animated.View so content renders)
-- Client: Random sort now keeps 3 albums per row (set albumsPerRow when selecting Random in sort menu)
+- Client: Replace `SwipeDownDismissWrapper` layout with outer `View` + absolute `Animated.View` so Album details render on Android.
+- Client: Set `albumsPerRow` explicitly when selecting Random sort.
 
 ### Changed
 
-- Client: Full-page player close control is back arrow top-left (matches album/track detail)
-- Client: Swipe-down to dismiss animates (drag page down to reveal previous screen, then dismiss)
-- Client: Dismiss gesture no longer shows refresh spinner (DismissRefreshControl with transparent indicator)
-- Client: Prefetch first 20 album artwork URLs when library loads for faster grid display
+- Client: Replace full-page player close control with a top-left back arrow to match album/track detail screens.
+- Client: Animate swipe-down dismiss by translating page content with drag distance and threshold-based dismissal.
+- Client: Render dismiss refresh control with a transparent indicator to suppress visible spinner artifacts.
+- Client: Prefetch the first 20 album artwork URLs when library data loads.
 
-## [0.1.0-beta.15] - 2026-03-16
+## [0.1.0-beta.15] - 2026-03-01
 
 ### Changed
 
-- Client: swipe-down to dismiss on album detail, track detail, and full-page player (pull down at top = go back/close, same gesture as library refresh)
+- Client: Add top-of-scroll swipe-down dismiss handlers on album detail, track detail, and full-page player screens.
 
 ## [0.1.0-beta.14] - 2026-03-01
 
 ### Added
 
-- Client: EAS Build for Android (APK), local keystore/credentials, preview profile
-- Client: HomeScreen, AppErrorBoundary, ngrok tunnel config and scripts
-- Client: expo-asset for SDK 54 compatibility; zoomable artwork modal; expo-audio patch
+- Client: Add EAS Android APK preview build profile with local keystore/credential support.
+- Client: Add `HomeScreen`, `AppErrorBoundary`, and ngrok tunnel configuration/scripts.
+- Client: Add `expo-asset` SDK 54 compatibility, zoomable artwork modal support, and expo-audio patch updates.
 
 ### Fixed
 
-- Client: App crash on launch (PaperProvider theme; use MD3DarkTheme)
-- Client: react-native-screens aligned to ~4.16.0 for Expo SDK 54
-- Client: Adaptive icon and app icon made square (246×246) for store requirements
+- Client: Switch PaperProvider theme initialization to `MD3DarkTheme` to avoid startup crash paths.
+- Client: Pin `react-native-screens` to Expo SDK 54-compatible `~4.16.0`.
+- Client: Replace adaptive and app icon assets with 246×246 square variants for store validation requirements.
 
 ### Changed
 
-- Client: Build and run scripts (build-apk.sh, tunnel env); player swipe-down dismiss and media controls; album/library/player UI improvements
+- Client: Update build/run scripts (`build-apk.sh`, tunnel env), swipe-dismiss/media controls, and album/library/player UI layout.
 
 ## [0.1.0-beta.1] - 2025-02-15
 
@@ -102,30 +102,30 @@ First beta release. Considered beta until all components are confirmed working i
 ### Added
 
 - **Server (rompmusic-server)**
-  - FastAPI backend with PostgreSQL and Redis
-  - Library scanner with Mutagen for metadata (MP3, FLAC, M4A, OGG, OGA, Opus)
-  - Server-Sent Events (SSE) stream for live scan progress
-  - Admin dashboard with login, library statistics, and scan UI
-  - Live startup status messages: "Opening music directory", "Discovering files", "Found N files", per-file progress
-  - JWT authentication and admin user creation
-  - REST API for library, search, streaming, playlists, artwork
-  - Swagger and ReDoc API documentation
+  - Build FastAPI backend services with PostgreSQL and Redis.
+  - Implement library scanning with Mutagen metadata parsing (MP3, FLAC, M4A, OGG, OGA, Opus).
+  - Stream live scan progress over Server-Sent Events (SSE).
+  - Add admin dashboard login, library statistics, and scan controls.
+  - Emit startup status messages ("Opening music directory", "Discovering files", "Found N files") plus per-file progress.
+  - Add JWT authentication and admin-user creation.
+  - Expose REST APIs for library, search, streaming, playlists, and artwork.
+  - Publish Swagger and ReDoc API docs.
 - **Website (rompmusic-website)**
-  - Next.js 14 landing page at rompmusic.com
-  - Docs and installation guide
-  - /app and /server links for client and admin
-  - Dockerfile for standalone production build
+  - Build Next.js 14 landing page at rompmusic.com.
+  - Add docs and installation guide pages.
+  - Add `/app` and `/server` links for client and admin entry points.
+  - Add Dockerfile for standalone production builds.
 - **Client (rompmusic-client)**
-  - Expo app for Android, iOS, and web
-  - Gapless playback support
+  - Build Expo app targets for Android, iOS, and web.
+  - Add gapless playback support.
 - **Deployment**
-  - Docker Compose stack (server, website, PostgreSQL, Redis)
-  - Nginx configuration for rompmusic.com (SSL, proxy to API/server/website)
+  - Add Docker Compose stack (server, website, PostgreSQL, Redis).
+  - Add nginx configuration for rompmusic.com (SSL and API/server/website proxying).
 
 ### Fixed
 
-- Website Docker build (create `public` directory for Next.js standalone)
-- Library scan progress stuck at 0% (per-file progress callbacks, SSE-friendly nginx config)
+- Website: Create the `public` directory in Docker builds so Next.js standalone output includes static assets.
+- Server: Emit per-file scan progress callbacks and use SSE-friendly nginx proxy settings for continuous scan updates.
 
 [Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.4...HEAD
 [0.1.4]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.4
