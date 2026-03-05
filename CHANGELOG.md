@@ -10,12 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update `rompmusic-client` submodule reference to include Android native-queue resume synchronization changes.
+- Update `rompmusic-client` submodule reference to include foreground track-end transition changes.
 
 ### Fixed
 
 - Client: Sync native queue index/position when Android app returns to foreground from lock/background.
 - Client: Limit non-native Android resume catch-up to a single next-track advance to avoid multi-track skips.
 - Client: Capture Android background snapshots from live player time/duration and ignore transient `inactive` AppState transitions.
+- Client: Avoid foreground track truncation by requiring end-of-track completion events for queue advancement while app is active.
 
 ## [0.1.6] - 2026-03-05
 
