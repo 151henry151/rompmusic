@@ -7,10 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- (Changes since last release will be listed here)
+
+## [0.1.6] - 2026-03-05
+
 ### Changed
 
 - Client: Normalize `/search` query text by trimming and collapsing internal whitespace.
 - Server: Normalize search input into lowercase tokens before applying filters.
+- Synchronize umbrella version metadata and submodule references to `0.1.6`.
 
 ### Fixed
 
@@ -141,7 +148,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website: Create the `public` directory in Docker builds so Next.js standalone output includes static assets.
 - Server: Emit per-file scan progress callbacks and use SSE-friendly nginx proxy settings for continuous scan updates.
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.5...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.6...HEAD
+[0.1.6]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.6
 [0.1.5]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.5
 [0.1.4]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.4
 [0.1.3]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.3
