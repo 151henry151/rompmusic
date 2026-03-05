@@ -7,14 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
-
-- Client: Widen end-of-track detection thresholds and add a fallback timer to force album queue advance when callbacks lag.
-- Client: Create a fresh next-track player on Android album playback instead of reusing preloaded player state.
-
 ### Added
 
 - (Changes since last release will be listed here)
+
+## [0.1.5] - 2026-03-05
+
+### Changed
+
+- Synchronize umbrella release metadata and component version references to `0.1.5`.
+
+### Fixed
+
+- Client: Use effective web stream-format selection and keep Safari on original format when OGG is selected.
+- Client: Try JSON-string and array `setQueue` payload signatures in Android native queue setup before fallback.
+- Client: Replace malformed `expo-audio+1.1.1` patch payload so native queue bridge methods apply during install.
+- Client: Catch lock-screen metadata and native seek bridge errors so Android album playback does not drop to JS-only advancement.
 
 ## [0.1.4] - 2026-02-14
 
@@ -127,7 +135,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website: Create the `public` directory in Docker builds so Next.js standalone output includes static assets.
 - Server: Emit per-file scan progress callbacks and use SSE-friendly nginx proxy settings for continuous scan updates.
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.5
 [0.1.4]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.4
 [0.1.3]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.3
 [0.1.1]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.1
