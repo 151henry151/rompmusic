@@ -7,11 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- (Changes since last release will be listed here)
+
+## [0.1.7] - 2026-03-06
+
 ### Changed
 
-- Update `rompmusic-client` submodule reference to include Android native-queue resume synchronization changes.
-- Update `rompmusic-client` submodule reference to include foreground track-end transition changes.
-- Update `rompmusic-client` submodule reference to include post-unlock background-advance guard logic.
+- Synchronize umbrella version metadata and component submodule references to `0.1.7`.
+- Client: Add Android mini-player previous/next controls around the play/pause button.
+- Client: Trigger AppState background handling only for true `background` transitions and restrict early end-of-track promotion heuristics to background playback.
 
 ### Fixed
 
@@ -158,7 +164,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website: Create the `public` directory in Docker builds so Next.js standalone output includes static assets.
 - Server: Emit per-file scan progress callbacks and use SSE-friendly nginx proxy settings for continuous scan updates.
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.7...HEAD
+[0.1.7]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.7
 [0.1.6]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.6
 [0.1.5]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.5
 [0.1.4]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.4
