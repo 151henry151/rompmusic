@@ -11,6 +11,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.8] - 2026-03-06
+
+### Changed
+
+- Synchronize umbrella version metadata and component submodule references to `0.1.8`.
+- Update `rompmusic-client` submodule reference to include Android native TrackPlayer queue-service playback architecture.
+- Update `rompmusic-server` submodule reference to include `0.1.8` version-metadata updates.
+- Update `rompmusic-website` submodule reference to include `0.1.8` version-metadata updates.
+
+### Fixed
+
+- Client: Delegate Android lock-screen/background queue transitions to the native playback service path.
+- Client: Synchronize Android player UI state from native playback events and foreground re-sync calls.
+
 ## [0.1.7] - 2026-03-06
 
 ### Changed
@@ -171,7 +185,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website: Create the `public` directory in Docker builds so Next.js standalone output includes static assets.
 - Server: Emit per-file scan progress callbacks and use SSE-friendly nginx proxy settings for continuous scan updates.
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.7...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.8...HEAD
+[0.1.8]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.8
 [0.1.7]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.7
 [0.1.6]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.6
 [0.1.5]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.5
