@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Client: Delegate Android lock-screen/background queue transitions to the native playback service path.
 - Client: Synchronize Android player UI state from native playback events and foreground re-sync calls.
+- Client: Patch `react-native-track-player` Kotlin nullability handling so Android release builds compile with Expo SDK 54 / React Native 0.81.
 
 ## [0.1.7] - 2026-03-06
 
