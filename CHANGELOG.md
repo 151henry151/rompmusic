@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update `rompmusic-client` submodule reference to include Android production-build metadata increment (`expo.android.versionCode` `4` -> `5`).
+- Update `rompmusic-client` submodule reference to disable New Architecture for Android runtime compatibility with `react-native-track-player`.
+
+### Fixed
+
+- Client: Add Android playback-service recovery handlers that retry playback errors and force queue progression when playback reports `Ended` before advancing to the next track.
 
 ## [0.1.8] - 2026-03-06
 
