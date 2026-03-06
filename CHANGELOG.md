@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+### Changed
+
+- Update `rompmusic-client` submodule reference to include Android production-build metadata increment (`expo.android.versionCode` `5` -> `6`).
+
 ## [0.1.9] - 2026-03-06
 
 ### Changed
