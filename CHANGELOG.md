@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update `rompmusic-client` submodule reference to include Android native-queue resume synchronization changes.
 - Update `rompmusic-client` submodule reference to include foreground track-end transition changes.
+- Update `rompmusic-client` submodule reference to include post-unlock background-advance guard logic.
 
 ### Fixed
 
@@ -18,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Client: Limit non-native Android resume catch-up to a single next-track advance to avoid multi-track skips.
 - Client: Capture Android background snapshots from live player time/duration and ignore transient `inactive` AppState transitions.
 - Client: Avoid foreground track truncation by requiring end-of-track completion events for queue advancement while app is active.
+- Client: Skip foreground resume catch-up when playback already advanced to a new track while device was locked.
 
 ## [0.1.6] - 2026-03-05
 
