@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Client: Add Android mini-player previous/next controls around the play/pause button.
 - Client: Trigger AppState background handling only for true `background` transitions and restrict early end-of-track promotion heuristics to background playback.
 - Update `rompmusic-client` submodule reference to include Android ExoPlayer wake-mode queue-transition reliability changes.
+- Update `rompmusic-client` submodule reference to include live-duration resume guards that suppress false post-unlock skips.
 
 ### Fixed
 
@@ -28,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Client: Avoid foreground track truncation by requiring end-of-track completion events for queue advancement while app is active.
 - Client: Skip foreground resume catch-up when playback already advanced to a new track while device was locked.
 - Client: Set Android ExoPlayer wake mode to `WAKE_MODE_NETWORK` so queued stream transitions can continue while device is locked.
+- Client: Prefer live player duration/status on foreground resume and avoid forced skip while a track is actively playing.
 
 ## [0.1.6] - 2026-03-05
 
