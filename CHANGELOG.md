@@ -11,12 +11,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.10] - 2026-03-07
+
 ### Changed
 
+- Synchronize umbrella version metadata and component submodule references to `0.1.10`.
 - Update `rompmusic-client` submodule reference to include Android production-build metadata increment (`expo.android.versionCode` `5` -> `6`).
 - Update `rompmusic-client` submodule reference to include Android production-build metadata increment (`expo.android.versionCode` `6` -> `7`).
 - Update `rompmusic-client` submodule reference to include Android production-build metadata increment (`expo.android.versionCode` `7` -> `8`).
 - Update `rompmusic-client` submodule reference to exclude `react-native-track-player` from Expo Doctor React Native Directory validation for intentional non-New-Architecture usage.
+- Update `rompmusic-client` submodule reference to include iOS branch merge updates for Expo Go compatibility guards and iOS slider build compatibility.
+- Update `rompmusic-server` submodule reference to include `0.1.10` version-metadata updates.
+- Update `rompmusic-website` submodule reference to include `0.1.10` version-metadata updates.
 
 ## [0.1.9] - 2026-03-06
 
@@ -207,7 +213,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website: Create the `public` directory in Docker builds so Next.js standalone output includes static assets.
 - Server: Emit per-file scan progress callbacks and use SSE-friendly nginx proxy settings for continuous scan updates.
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.9...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.10...HEAD
+[0.1.10]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.10
 [0.1.9]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.9
 [0.1.8]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.8
 [0.1.7]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.7
