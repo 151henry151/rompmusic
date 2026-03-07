@@ -9,7 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add `docker-compose.demo.yml` for demo instance (server, client, db, redis) with optional production music mount for symlink resolution.
 - (Changes since last release will be listed here)
+
+### Changed
+
+- Update `rompmusic-server` submodule reference: make library scanner follow symlinks so content under symlinked artist directories is indexed.
+- Update `rompmusic-client` submodule reference: add Dockerfile build args for `EXPO_PUBLIC_API_URL` and `EXPO_PUBLIC_WEB_BASE_URL` to support demo vs production builds.
 
 ## [0.1.10] - 2026-03-07
 
