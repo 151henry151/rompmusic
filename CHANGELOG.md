@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update `rompmusic-client` submodule reference to include Android production-build metadata increment (`expo.android.versionCode` `5` -> `6`).
+- Update `rompmusic-client` submodule reference to include Android production-build metadata increment (`expo.android.versionCode` `6` -> `7`).
+- Update `rompmusic-client` submodule reference to exclude `react-native-track-player` from Expo Doctor React Native Directory validation for intentional non-New-Architecture usage.
 
 ## [0.1.9] - 2026-03-06
 
