@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update `rompmusic-client` submodule: web build stubs, back button on reload, track-detail single-track play, setActive fix.
 - Update `rompmusic-server` submodule: run Alembic migrations on startup, add alembic to Docker image.
+- Update `rompmusic-website` submodule: document nginx client-route redirects in install guide.
 
 ### Fixed
 
