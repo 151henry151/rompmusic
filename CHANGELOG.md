@@ -9,13 +9,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add `docker-compose.demo.yml` for demo instance (server, client, db, redis) with optional production music mount for symlink resolution.
 - (Changes since last release will be listed here)
 
 ### Changed
 
-- Update `rompmusic-server` submodule reference: make library scanner follow symlinks so content under symlinked artist directories is indexed.
-- Update `rompmusic-client` submodule reference: add Dockerfile build args for `EXPO_PUBLIC_API_URL` and `EXPO_PUBLIC_WEB_BASE_URL` to support demo vs production builds.
+- (Changes since last release will be listed here)
+
+### Fixed
+
+- (Changes since last release will be listed here)
+
+## [0.1.11] - 2026-03-14
+
+### Added
+
+- Add per-user playlists: create, rename, reorder, delete playlists; add and remove tracks; play playlist from library or track/album context (client and server).
+- Add `docker-compose.demo.yml` for demo instance (server, client, db, redis) with optional production music mount for symlink resolution.
+
+### Changed
+
+- Update `rompmusic-server` submodule reference: playlist API, scanner follow symlinks, null-byte sanitization; release 0.1.11.
+- Update `rompmusic-client` submodule reference: playlist UI and store, Dockerfile build args, release 0.1.11.
+
+### Fixed
+
+- Server: Strip null bytes from file metadata (artist, album, title) before database use so library scan does not fail with PostgreSQL CharacterNotInRepertoireError.
 
 ## [0.1.10] - 2026-03-07
 
@@ -219,7 +237,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website: Create the `public` directory in Docker builds so Next.js standalone output includes static assets.
 - Server: Emit per-file scan progress callbacks and use SSE-friendly nginx proxy settings for continuous scan updates.
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.10...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.11...HEAD
+[0.1.11]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.11
 [0.1.10]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.10
 [0.1.9]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.9
 [0.1.8]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.8
