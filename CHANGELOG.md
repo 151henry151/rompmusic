@@ -13,13 +13,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Update `rompmusic-client` submodule: web build stubs, back button on reload, track-detail single-track play, setActive fix.
-- Update `rompmusic-server` submodule: run Alembic migrations on startup, add alembic to Docker image.
-- Update `rompmusic-website` submodule: document nginx client-route redirects in install guide.
+- (Changes since last release will be listed here)
 
 ### Fixed
 
 - (Changes since last release will be listed here)
+
+## [0.1.12] - 2026-03-21
+
+### Added
+
+- Add Last.fm integration tests in `rompmusic-server` (mocked API responses; optional live API key smoke test).
+
+### Changed
+
+- Update `rompmusic-server` submodule reference to release 0.1.12: per-file nested transactions during library scan with log-and-continue on failure; run Alembic migrations on startup; include Alembic assets in Docker image; Last.fm similar-track matching and metadata-based autoplay when no API key; align `pyproject.toml` version and README feature list with playlists.
+
+### Fixed
+
+- Prefer same-artist Last.fm autoplay suggestions when similar-tracks returns no matches (via server 0.1.12).
 
 ## [0.1.11] - 2026-03-14
 
@@ -239,7 +251,8 @@ First beta release. Considered beta until all components are confirmed working i
 - Website: Create the `public` directory in Docker builds so Next.js standalone output includes static assets.
 - Server: Emit per-file scan progress callbacks and use SSE-friendly nginx proxy settings for continuous scan updates.
 
-[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.11...HEAD
+[Unreleased]: https://github.com/151henry151/rompmusic/compare/v0.1.12...HEAD
+[0.1.12]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.12
 [0.1.11]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.11
 [0.1.10]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.10
 [0.1.9]: https://github.com/151henry151/rompmusic/releases/tag/v0.1.9
