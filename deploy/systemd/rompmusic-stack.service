@@ -1,0 +1,27 @@
+# RompMusic production stack (PostgreSQL, Redis, FastAPI server, website, client).
+# Install on the host:
+#   sudo install -m 644 deploy/systemd/rompmusic-stack.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now rompmusic-stack.service
+#
+# Requires Docker; brings up docker-compose.yml after docker.service is ready.
+# Compose also uses restart: unless-stopped so containers survive daemon restarts.
+
+[Unit]
+Description=RompMusic Docker Compose stack (db, redis, server, website, client)
+Documentation=https://github.com/151henry151/rompmusic
+After=docker.service network-online.target
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/home/henry/rompmusic
+# Use full path; compose file picks up .env from WorkingDirectory
+ExecStart=/usr/bin/docker compose -f /home/henry/rompmusic/docker-compose.yml up -d
+ExecReload=/usr/bin/docker compose -f /home/henry/rompmusic/docker-compose.yml up -d
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target

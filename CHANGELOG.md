@@ -19,6 +19,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.13] - 2026-03-23
+
+### Added
+
+- Add `deploy/systemd/rompmusic-stack.service` and `deploy/systemd/README.md` for starting the production compose stack after `docker.service` on boot.
+
+### Changed
+
+- Set `restart: unless-stopped` on **db**, **redis**, and **server** in `docker-compose.yml` so those containers come back with Docker after a host reboot (aligned with **website** and **client**).
+
 ## [0.1.12] - 2026-03-21
 
 ### Added
