@@ -19,6 +19,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.14] - 2026-03-28
+
+### Added
+
+- Add `AGENTS.md` with Cursor Cloud agent instructions for local development.
+
+### Changed
+
+- Point `rompmusic-client` submodule to `0.1.13` on `master` (shuffle, repeat modes, extended autoplay similar-track top-up, string-based URL parsing, autoplay-from-track/album actions) instead of submodule commit `50a59d99` from merged branch `cursor/development-environment-setup-ad4b`, which is not present on the client remote.
+- Point `rompmusic-server` submodule to a revision that mounts the OpenAPI schema at `/api/openapi.json` so `/api/docs` loads behind nginx.
+- Point `rompmusic-website` submodule to expanded documentation (Overview, Client setup, Contributing) and related docs index updates.
+
 ## [0.1.13] - 2026-03-23
 
 ### Added
