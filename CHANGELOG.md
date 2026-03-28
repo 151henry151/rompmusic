@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.15] - 2026-03-28
+
+### Changed
+
+- Point `rompmusic-client` submodule to `0.1.14` on `master`: merge `cursor/offline-library` (downloads, offline library screen, metadata and artwork caching, local playback) with existing shuffle, repeat, and extended autoplay behavior.
+
 ## [0.1.14] - 2026-03-28
 
 ### Added
