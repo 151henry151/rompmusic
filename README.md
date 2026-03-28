@@ -20,7 +20,7 @@ RompMusic is a complete, self-hosted music streaming system that is **libre** (f
 | Component | Description |
 |-----------|-------------|
 | **rompmusic-server** | Backend server for streaming, library management, and API |
-| **rompmusic-client** | Cross-platform client (Android, iOS, web) with gapless playback, play history, and paginated library |
+| **rompmusic-client** | Cross-platform client (Android, iOS, web) with gapless playback, playlists, play history, and paginated library |
 | **rompmusic-website** | Project website and documentation at rompmusic.com |
 
 ## Quick Start
@@ -28,10 +28,10 @@ RompMusic is a complete, self-hosted music streaming system that is **libre** (f
 ### Using Docker (Recommended)
 
 ```bash
-git clone --recursive https://github.com/rompmusic/rompmusic.git
+git clone --recursive https://github.com/151henry151/rompmusic.git
 cd rompmusic
 cp .env.example .env
-# Edit .env with your configuration
+# Edit .env with your configuration (DB_PASSWORD, JWT_SECRET, etc.)
 docker compose up -d
 ```
 

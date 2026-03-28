@@ -1,57 +1,43 @@
 # Copyright (C) 2024 RompMusic Contributors
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# RompMusic full stack: server + PostgreSQL + Redis
+# RompMusic demo stack: server + client + PostgreSQL + Redis
+# Use: docker compose -f docker-compose.demo.yml --env-file .env.demo up -d
 
 services:
-  db:
+  db-demo:
     image: postgres:16-alpine
-    restart: unless-stopped
     environment:
       POSTGRES_USER: rompmusic
       POSTGRES_PASSWORD: ${DB_PASSWORD:-rompmusic}
       POSTGRES_DB: rompmusic
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata-demo:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U rompmusic"]
       interval: 5s
       timeout: 5s
       retries: 5
 
-  redis:
+  redis-demo:
     image: redis:7-alpine
-    restart: unless-stopped
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
       timeout: 3s
       retries: 5
 
-  website:
-    build: ./rompmusic-website
-    ports:
-      - "3002:3000"
-    restart: unless-stopped
-
-  client:
-    build: ./rompmusic-client
-    ports:
-      - "3003:80"
-    restart: unless-stopped
-
-  server:
+  server-demo:
     build: ./rompmusic-server
-    restart: unless-stopped
     ports:
-      - "8097:8080"
+      - "8098:8080"
     environment:
-      DATABASE_URL: postgresql+asyncpg://rompmusic:${DB_PASSWORD:-rompmusic}@db:5432/rompmusic
-      REDIS_URL: redis://redis:6379
+      DATABASE_URL: postgresql+asyncpg://rompmusic:${DB_PASSWORD:-rompmusic}@db-demo:5432/rompmusic
+      REDIS_URL: redis://redis-demo:6379
       JWT_SECRET: ${JWT_SECRET}
       MUSIC_PATH: /music
       ADMIN_COOKIE_SECRET: ${ADMIN_COOKIE_SECRET:-change-me}
-      BASE_URL: https://rompmusic.com
+      BASE_URL: https://demo.rompmusic.com
       LASTFM_API_KEY: ${LASTFM_API_KEY:-}
       SMTP_HOST: ${SMTP_HOST:-}
       SMTP_PORT: ${SMTP_PORT:-587}
@@ -59,12 +45,25 @@ services:
       SMTP_PASSWORD: ${SMTP_PASSWORD:-}
       SMTP_FROM: ${SMTP_FROM:-}
     volumes:
-      - ${MUSIC_PATH:-./music}:/music:ro
+      - ${MUSIC_PATH_DEMO:-./music-demo}:/music:ro
+      # Mount production library so symlinks in music-demo (e.g. Romp, Henry Romp) resolve
+      - ${MUSIC_PATH:-/mnt/media-storage/music}:/mnt/media-storage/music:ro
     depends_on:
-      db:
+      db-demo:
         condition: service_healthy
-      redis:
+      redis-demo:
         condition: service_healthy
+    restart: unless-stopped
+
+  client-demo:
+    build:
+      context: ./rompmusic-client
+      args:
+        EXPO_PUBLIC_API_URL: https://demo.rompmusic.com/api/v1
+        EXPO_PUBLIC_WEB_BASE_URL: client
+    ports:
+      - "3005:80"
+    restart: unless-stopped
 
 volumes:
-  pgdata:
+  pgdata-demo:

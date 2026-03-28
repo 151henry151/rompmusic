@@ -65,6 +65,15 @@ rompmusic/
 
 See the README in each component for setup instructions.
 
+## Version Numbers
+
+When bumping the release version (e.g. for a new beta or release):
+
+1. **All repos** — Update `VERSION` and `CHANGELOG.md` in the umbrella repo and in any submodule that changed (`rompmusic-server`, `rompmusic-website`, `rompmusic-client`). Keep version strings in sync across the project.
+2. **Client (rompmusic-client)** — Also update the version in **both** of these places, or EAS/Expo builds will show the old version in the dashboard and in the built app:
+   - `rompmusic-client/app.json` → `expo.version`
+   - `rompmusic-client/package.json` → `version`
+
 ## Questions?
 
 Open an issue or reach out to the maintainers.
