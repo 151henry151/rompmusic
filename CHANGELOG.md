@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - (Changes since last release will be listed here)
 
+## [0.1.16] - 2026-03-28
+
+### Changed
+
+- Point `rompmusic-server` submodule to `0.1.15` on `master` (fix admin `/server` HTML `TemplateResponse` call signature for Starlette 1.x; add `tests/test_admin_web.py`).
+- Point `rompmusic-website` submodule to `master` at `3f989eb` (document nginx client-route redirects in the install guide).
+
 ## [0.1.15] - 2026-03-28
 
 ### Changed
